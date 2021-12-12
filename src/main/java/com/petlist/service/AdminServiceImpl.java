@@ -1,9 +1,5 @@
 package com.petlist.service;
 
-import com.petlist.dao.AdminMapper;
-import com.petlist.pojo.admin;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

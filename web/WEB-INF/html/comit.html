@@ -21,6 +21,25 @@
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/jquery-3.6.0.min.js"></script>
 </head>
+<script>
+    $("#idForm").submit(function(e) {
+
+        var form = $(this);
+        var url = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                alert(data); // show response from the php script.
+            }
+        });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
+</script>
 <body>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
@@ -52,11 +71,11 @@
 
         <!-- Masthead Subheading-->
         <p class="masthead-subheading font-weight-light mb-0">
-            台灣在2019年就已經宣布上限寵物黑名單網站，政府到現在遲遲沒有推出，希望就由此網站幫住送養人過濾虐待動物者
+            台灣在2019年就已經宣布上限寵物黑名單網站，政府到現在遲遲沒有推出，希望就由此網站幫助送養人過濾虐待動物者
         </p>
     </div>
 </header>
-<form>
+<form id="idForm">
     <div class="mb-3">
         <label class="form-label">類別</label>
         <select class="form-select" aria-label="Default select example">
