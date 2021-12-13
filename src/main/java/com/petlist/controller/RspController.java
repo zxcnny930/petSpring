@@ -26,5 +26,11 @@ public class RspController {
         return "comit";
     }
 
+    @RequestMapping("check")
+    public String check() {
+
+        return "Check";
+    }
+
 
 }

@@ -20,6 +20,37 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+        function OK(id){
+
+        }
+        function NO(id){
+
+        }
+        $(function (){
+            $.get("getCheck",function (data) {
+                console.log(data)
+                var html="";
+                for (var i = 0; i <data.length ; i++) {
+                    html+= "<tr>" +
+                        "<td>" + data[i].id + "</td>" +
+                        "<td>" + data[i].pet + "</td>" +
+                        "<td>" + data[i].name + "</td>" +
+                        "<td>" + data[i].gender + "</td>" +
+                        "<td>" + data[i].location + "</td>" +
+                        "<td>" + data[i].date + "</td>" +
+                        "<td>" + data[i].phone + "</td>" +
+                        "<td>" + data[i].prove + "</td>" +
+                        "<td>" +
+                        "     <button onclick='OK(data[i].id)' type=\"button\" class=\"btn btn-success\">確認</button>" +
+                        "     <button onclick='NO(data[i].id)' type=\"button\" class=\"btn btn-danger\">否決</button>" +
+                        "</td>"
+                        "</tr>"
+                }
+                $("#showUp").html(html);
+            });
+        })
+    </script>
 </head>
 <body>
 <!-- Navigation-->
@@ -56,45 +87,48 @@
         </p>
     </div>
 </header>
-<form action="comitList" name="idForm" id="idForm" method="post">
-    <div class="mb-3">
-        <label class="form-label">類別</label>
-        <select class="form-select" aria-label="Default select example" name="pet" id="pet">
-            <option value="1">狗</option>
-            <option value="2">貓</option>
-        </select>
-    </div>
 
-    <div class="mb-3">
-        <label class="form-label">姓名</label>
-        <input type="text" class="form-control" name="Name" id="Name">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">性別</label>
-        <input type="text" class="form-control" name="gender" id="gender">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">地點</label>
-        <input type="text" class="form-control" name="location" id="location">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">日期</label>
-        <input type="date"  class="form-control" name="date" id="date">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">手機末四碼</label>
-        <input type="text" maxlength="4" class="form-control" name="phone" id="phone">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">相關連接</label>
-            <input type="text" class="form-control" name="prove"  id="prove">
-    </div>
 
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">確認提供表單真實性，如有違法個人自行承擔</label>
+
+<div class="" id="ShowBlacklist">
+    <table id="category" style="table-layout:fixed; width:100%; text-align: center"
+           class="table table-bordered table-responsive-md ">
+        <th class="text-nowrap" scope="col">ID</th>
+        <th class="text-nowrap" scope="col">類別</th>
+        <th class="text-nowrap" scope="col">姓名</th>
+        <th class="text-nowrap" scope="col">性別</th>
+        <th class="text-nowrap" scope="col">地點</th>
+        <th class="text-nowrap" scope="col">日期</th>
+        <th class="text-nowrap" scope="col">手機</th>
+        <th  scope="col">相關連結</th>
+        <th class="text-nowrap" scope="col">確認</th>
+
+        <tbody id ="showUp">
+
+        </tbody>
+    </table>
+
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-xl-7">
     </div>
-    <button type="submit" class="btn btn-primary">投稿</button>
-</form>
+</div>
+<nav class="container" aria-label="Page navigation example">
+    <ul class="pagination ">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>

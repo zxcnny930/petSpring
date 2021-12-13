@@ -6,7 +6,4 @@
     <typeAliases>
     <package name="com.petlist.pojo"/>
     </typeAliases>
-    <mappers>
-        <mapper resource="com/petlist/dao/Adminmapper.xml"/>
-    </mappers>
 </configuration>
