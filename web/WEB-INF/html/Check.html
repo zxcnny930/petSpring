@@ -21,12 +21,22 @@
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="../../js/jquery-3.6.0.min.js"></script>
     <script>
-        function OK(id){
-
+        function OK(data){
+                $.ajax({
+                    data: data,
+                    type : "post",
+                    url : "OK"
+                })
         }
-        function NO(id){
-
+        function OK(data){
+            $.ajax({
+                data: data,
+                type : "post",
+                url : "OK"
+            })
         }
+
+
         $(function (){
             $.get("getCheck",function (data) {
                 console.log(data)
@@ -42,8 +52,8 @@
                         "<td>" + data[i].phone + "</td>" +
                         "<td>" + data[i].prove + "</td>" +
                         "<td>" +
-                        "     <button onclick='OK(data[i].id)' type=\"button\" class=\"btn btn-success\">確認</button>" +
-                        "     <button onclick='NO(data[i].id)' type=\"button\" class=\"btn btn-danger\">否決</button>" +
+                        "     <button onclick='OK(data)' type=\"button\" class=\"btn btn-success\">確認</button>" +
+                        "     <button onclick='NO(data)' type=\"button\" class=\"btn btn-danger\">否決</button>" +
                         "</td>"
                         "</tr>"
                 }

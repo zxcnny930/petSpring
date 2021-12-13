@@ -19,4 +19,9 @@ public class CheckServiceImpl implements CheckService{
     public List<CheckPojo> queryAllCheck() {
         return checkMapper.queryAllCheck();
     }
+
+    @Override
+    public void insertToDog() {
+        checkMapper.adddog();
+    }
 }

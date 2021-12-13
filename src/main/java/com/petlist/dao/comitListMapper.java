@@ -9,4 +9,6 @@ import java.util.Map;
 public interface comitListMapper {
     @Insert("INSERT INTO petlist.check(pet,name,gender,location,date,phone,prove) VALUES(#{pet},#{name},#{gender},#{location},#{date},#{phone},#{prove})")
     void comitList(Map<String,Object> map);
+
+
 }

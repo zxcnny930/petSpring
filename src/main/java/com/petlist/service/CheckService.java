@@ -9,4 +9,6 @@ import java.util.List;
 @Resource
 public interface CheckService {
     List<CheckPojo> queryAllCheck();
+
+    void insertToDog();
 }
